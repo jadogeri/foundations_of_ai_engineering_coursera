@@ -1,16 +1,15 @@
-# This is a sample Python script.
+from common.utils import print_header, print_toc_entry, print_sub_section
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def main():
+    print_header("Project Learning Structure")
+    print_toc_entry(1, "Python Programming Basics")
+    print_toc_entry(2, "Data Science Essentials")
+    print_toc_entry(3, "Mathematics for Machine Learning")
+    print_toc_entry(3, "Probability and statistics for Machine Learning")
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    main()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/

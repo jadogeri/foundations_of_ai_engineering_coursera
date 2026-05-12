@@ -1,5 +1,4 @@
-
-from utils.logger import *
+from common.utils import print_header, print_toc_entry, print_sub_section
 
 # --- CHAPTER 1: THE FRONT MATTER (Table of Contents) ---
 print_header("Table of Contents")
