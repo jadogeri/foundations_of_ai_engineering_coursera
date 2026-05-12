@@ -1,6 +1,6 @@
-from common.utils import print_header, print_toc_entry, print_sub_section
+from common.utils import print_header, print_toc_entry
 
-def main():
+def main() -> None:
     print_header("Project Learning Structure")
     print_toc_entry(1, "Python Programming Basics")
     print_toc_entry(2, "Data Science Essentials")

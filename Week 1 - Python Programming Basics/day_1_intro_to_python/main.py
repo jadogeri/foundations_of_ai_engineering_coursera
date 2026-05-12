@@ -1,44 +1,39 @@
 from common.utils import print_header, print_toc_entry, print_sub_section
 
-# --- CHAPTER 1: THE FRONT MATTER (Table of Contents) ---
-print_header("Table of Contents")
-print_toc_entry(1, "Environment Setup")
-print_toc_entry(2, "Control Flow Basics")
-print_toc_entry(3, "Advanced Logic")
-
-# --- CHAPTER 2: THE CONTENT ---
-
-# Page 1
-print_header("Environment Setup")
-print_sub_section("Installing Python")
-print("Step 1: Download from python.org...")
-
-# Page 2
-print_header("Control Flow Basics")
-
-print_sub_section("While Loops")
-count = 0
-while count < 2:
-    print(f"Running iteration {count}")
-    count += 1
-
-print_sub_section("For Loops")
-for i in range(2):
-    print(f"Index: {i}")
-
-# Page 3
-print_header("Advanced Logic")
-print_sub_section("Nested If-Statements")
-print("Logic goes here...")
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
+def main(): 
+    print_header("Day 1: Introduction to Python Programming")
+    print_toc_entry(1, "Data Types and Variables")
+    print_sub_section(1, "Data Types and Variables")
+    
+    #Integers
+    my_int = 42
+    #Floats
+    my_float = 3.14
+    #Strings
+    my_string = "Hello, AI Engineering!"
+    #Booleans
+    my_bool = True
+    #Lists
+    my_list = [1, 2, 3, 4, 5]
+    #Dictionaries
+    my_dict = {"name": "Alice", "age": 30, "is_student": False}
+    #Tuples
+    my_tuple = (10, 20, 30)
+    #Sets
+    my_set = {1, 2, 3, 4, 5}
+    #NoneType
+    my_none = None
+    print(f"Integer: {my_int}")
+    print(f"Float: {my_float}")
+    print(f"String: {my_string}")
+    print(f"Boolean: {my_bool}")
+    print(f"List: {my_list}")
+    print(f"Dictionary: {my_dict}")
+    print(f"Tuple: {my_tuple}")
+    print(f"Set: {my_set}")
+    print(f"NoneType: {my_none}")
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    main()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/

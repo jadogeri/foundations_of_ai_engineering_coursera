@@ -18,14 +18,15 @@ def print_header(title: str) -> None:
     print(f" SECTION: {title.upper()}")
     print("="*50)
 
-def print_sub_section(name: str) -> None:
+def print_sub_section(number: int, name: str) -> None:
     """
     Prints a formatted sub-section divider to the console for task organization.
-    
+
+    :param number: The entry number (e.g., 1 becomes 01).
     :param name: The name of the specific task or sub-section.
     :return: None
     """
-    print(f"\n--- Sub-task: {name} ---")
+    print(f"\n--- {str(number).zfill(2)}: {name} ---")
 
 def print_toc_entry(number: int, title: str) -> None:
     """
