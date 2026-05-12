@@ -11,8 +11,8 @@ def main():
 
     print_sub_section(1, "if Statements")
     
-    positive_number = 10
-    negative_number = -5    
+    positive_number: int = 10
+    negative_number: int = -5
     if positive_number > 0:
         print(f"{positive_number} is a positive number.")
     if negative_number < 0:
@@ -45,7 +45,7 @@ def main():
         print(loop)
 
     print_sub_section(5, "while loop")
-    count = 0
+    count: int = 0
     while count < 5:
         print(count)
         count += 1

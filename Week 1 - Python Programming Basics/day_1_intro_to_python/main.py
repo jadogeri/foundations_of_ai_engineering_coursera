@@ -6,23 +6,23 @@ def main():
     print_sub_section(1, "Data Types and Variables")
     
     #Integers
-    my_int = 42
+    my_int: int = 42
     #Floats
-    my_float = 3.14
+    my_float: float = 3.14
     #Strings
-    my_string = "Hello, AI Engineering!"
+    my_string: str = "Hello, AI Engineering!"
     #Booleans
-    my_bool = True
+    my_bool: bool = True
     #Lists
-    my_list = [1, 2, 3, 4, 5]
+    my_list: list[int] = [1, 2, 3, 4, 5]
     #Dictionaries
-    my_dict = {"name": "Alice", "age": 30, "is_student": False}
+    my_dict: dict = {"name": "Alice", "age": 30, "is_student": False}
     #Tuples
-    my_tuple = (10, 20, 30)
+    my_tuple: tuple[int, int, int] = (10, 20, 30)
     #Sets
-    my_set = {1, 2, 3, 4, 5}
+    my_set: set[int] = {1, 2, 3, 4, 5}
     #NoneType
-    my_none = None
+    my_none: None = None
     print(f"Integer: {my_int}")
     print(f"Float: {my_float}")
     print(f"String: {my_string}")
