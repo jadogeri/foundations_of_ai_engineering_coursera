@@ -1,3 +1,5 @@
+from cmath import exp
+
 from common.utils import print_header, print_toc_entry, print_sub_section
 import numpy as np
 
@@ -17,7 +19,10 @@ def main():
     print("\ncreate numpy array using built-in functions:")
     print("\nnumpy array of ones:")
     ones = np.ones(5)  
-    print(ones) 
+    print(ones)
+    print("\nnumpy array of 2 by 4 of ones:")
+    two_by_four = np.ones((2, 4))
+    print(two_by_four)
     zeroes = np.zeros(5)
     print("numpy array of zeroes:")
     print(zeroes)
@@ -42,6 +47,10 @@ def main():
     reshaped_array2 = arr1.reshape(2, 3)
     print(reshaped_array1)
     print(reshaped_array2)
+    print("\nnumpy adding new dimensions:")
+    default_array = np.array([0, 1, 2, 3, 4, 5])
+    expanded_array = default_array[:, np.newaxis]
+    print(expanded_array)
     print_header("Basic Operations on NumPy Arrays")
     print_toc_entry(1, "Element-wise operations")
     print_toc_entry(2, "Mathematical operations")
