@@ -64,6 +64,25 @@ def main():
     print("Sum along columns:", np.sum(agg_arr, axis=0))
 
     print_header("Boolean Indexing and Filtering")
+    filter_arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
+    print("Original array:", filter_arr)
+
+    evens = filter_arr[filter_arr % 2 == 0]
+    print('evens:', evens)
+    odds = filter_arr[filter_arr % 2 == 1]
+    print('odds:', odds)
+    print("Modify elements based on conditions:")
+    arr[(arr > 3) & (arr < 7)] = 0
+    print("Original modified:", arr)
+
+    print_header("Random Number Generation and Setting Seeds")
+    print_toc_entry(1, "Random Number Generation")
+    random_array = np.random.randint(low=0, high=100, size=10)
+    print("random_array:", random_array)
+    random_integers = np.random.randint(low=0, high=100, size=(2,3))
+    print("random_integers:", random_integers)
+
+    print_toc_entry(2, "Setting Random Seeds")
 
 
 
