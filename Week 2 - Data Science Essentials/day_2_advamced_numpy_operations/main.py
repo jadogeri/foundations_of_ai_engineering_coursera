@@ -30,7 +30,7 @@ def main():
     print(arr - 5)
     
     print("vectors and matrices:")
-    vector= np.array([1, 2, 3])
+    vector = np.array([1, 2, 3])
     matrix = np.array([[1, 2, 3], [4, 5, 6]])
     
     print("Original vector:")
@@ -49,6 +49,24 @@ def main():
     print(matrix - vector)
     print_header("Aggregation functions")
     print("Aggregation functions are used to compute summary statistics of an array. Some common aggregation functions include:")
+    agg_arr = np.array([[1, 2, 3], [4, 5, 6]])
+    print("Original array:", agg_arr)
+    print("Sum():", np.sum(agg_arr))
+    print("Mean():", np.mean(agg_arr))
+    print("Median():", np.median(agg_arr))
+    vals, counts = np.unique(agg_arr, return_counts=True)
+    print('mode():', vals[np.argmax(counts)])
+    print("Min():", np.min(agg_arr))
+    print("Max():", np.max(agg_arr))
+    print("Standard Deviation():", np.std(agg_arr))
+    print("Variance():", np.var(agg_arr))
+    print("Sum along rows:", np.sum(agg_arr, axis=1))
+    print("Sum along columns:", np.sum(agg_arr, axis=0))
+
+    print_header("Boolean Indexing and Filtering")
+
+
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
