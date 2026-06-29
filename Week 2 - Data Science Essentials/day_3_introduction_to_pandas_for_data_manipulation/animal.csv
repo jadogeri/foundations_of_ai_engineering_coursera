@@ -1,0 +1,11 @@
+animal_id,species,age,diet,habitat
+1,Lion,5,Carnivore,Savanna
+2,Elephant,12,Herbivore,Savanna
+3,Panda,8,Herbivore,Forest
+4,Dolphin,4,Carnivore,Ocean
+5,Kangaroo,6,Herbivore,Grassland
+6,Tiger,10,Carnivore,Jungle
+7,Bear,7,Omnivore,Forest
+8,Giraffe,14,Herbivore,Savanna
+9,Eagle,3,Carnivore,Mountain
+10,Penguin,2,Carnivore,Ocean

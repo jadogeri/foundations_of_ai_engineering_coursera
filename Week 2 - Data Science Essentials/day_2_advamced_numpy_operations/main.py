@@ -2,7 +2,7 @@ from common.utils import print_header, print_toc_entry, print_sub_section
 import numpy as np
 
 def main(): 
-    print_header("Day 2: Advanced NumPy Operations")
+    print_header("Day 3: Introduction to Pandas Data Manipulation")
     print_toc_entry(1, "Broadcasting")
     print_toc_entry(2, "array operations")
     print_toc_entry(3, "array indexing and slicing")
@@ -76,14 +76,18 @@ def main():
     print("Original modified:", arr)
 
     print_header("Random Number Generation and Setting Seeds")
-    print_toc_entry(1, "Random Number Generation")
+    print_toc_entry(1, "Random Number Generation using np.random")
+    random_arr = np.random.rand(3,3)
+    print("Random array:", random_arr)
     random_array = np.random.randint(low=0, high=100, size=10)
     print("random_array:", random_array)
     random_integers = np.random.randint(low=0, high=100, size=(2,3))
     print("random_integers:", random_integers)
 
     print_toc_entry(2, "Setting Random Seeds")
-
+    np.random.seed(42)
+    random_arr = np.random.rand(3, 3)
+    print("Random seed: array the same:", random_arr)
 
 
 
