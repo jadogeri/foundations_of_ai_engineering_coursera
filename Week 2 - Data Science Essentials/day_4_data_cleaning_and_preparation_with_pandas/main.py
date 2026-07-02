@@ -46,6 +46,31 @@ def main():
     df = pd.DataFrame(data)
     print("\n\n")
 
+    print("Original data:\n", data)
+    print("\n\n")
+
+    print("Original DataFrame:\n", df)
+
+    print_sub_section(1, "Renaming Columns")
+    renamed_df = df.rename(columns={'item_name': 'Product'})
+    print(renamed_df)
+    print("\n\n")
+
+    print_sub_section(2, "Changing Data Types")
+    # Change the 'cost' column from text to whole numbers (integers)
+    df['cost'] = df['cost'].astype(int)
+    print(df.dtypes)
+    print("\n\n")
+
+    print_sub_section(3, "Creating or Modifying Columns")
+    #This step adds a brand new column or overwrites an old one. You usually do this by combining or changing columns you already have. [4, 5, 6]
+
+    # Make sure 'cost' is converted to numbers first, then calculate Total Spend
+    df['cost'] = df['cost'].astype(int)
+    # Create a new column named 'total_spend'
+    df['total_spend'] = df['cost'] * df['count']
+    print(df)
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
