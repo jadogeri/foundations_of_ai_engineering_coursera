@@ -98,10 +98,7 @@ def main():
 
     # Sub-section 2: Exercise 2 - Matrix-Vector Multiplication
     print_sub_section(2, "Exercise 2: Matrix Vector Multiplication")
-    m = np.array([,
-    ,
-        [7, 8, 9]
-    ])
+    m = np.array([[7, 8, 9]])
     v = np.array([1, 0, -1])
 
     ex2_result = np.dot(m, v)
