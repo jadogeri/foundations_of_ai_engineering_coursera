@@ -1,42 +1,58 @@
 from common.utils import print_header, print_toc_entry, print_sub_section
 
-def main(): 
+
+def main():
     print_header("Day 2: Control Flow and Logic in Python")
     print_toc_entry(1, "if")
     print_toc_entry(2, "elif")
     print_toc_entry(3, "else")
 
+    # --------------------------------------------------
+    # 01. if Statements
+    # --------------------------------------------------
     print_sub_section(1, "if Statements")
-    
-    #Integers
-    my_int = 42
-    #Floats
-    my_float = 3.14
-    #Strings
-    my_string = "Hello, AI Engineering!"
-    #Booleans
-    my_bool = True
-    #Lists
-    my_list = [1, 2, 3, 4, 5]
-    #Dictionaries
-    my_dict = {"name": "Alice", "age": 30, "is_student": False}
-    #Tuples
-    my_tuple = (10, 20, 30)
-    #Sets
-    my_set = {1, 2, 3, 4, 5}
-    #NoneType
-    my_none = None
-    print(f"Integer: {my_int}")
-    print(f"Float: {my_float}")
-    print(f"String: {my_string}")
-    print(f"Boolean: {my_bool}")
-    print(f"List: {my_list}")
-    print(f"Dictionary: {my_dict}")
-    print(f"Tuple: {my_tuple}")
-    print(f"Set: {my_set}")
-    print(f"NoneType: {my_none}")
 
-# Press the green button in the gutter to run the script.
+    temperature: int = 85
+    print(f"Current temperature: {temperature}°F")
+
+    if temperature > 80:
+        print("It's hot outside! Stay hydrated.")
+
+    # Checking boolean condition
+    is_authenticated = True
+    if is_authenticated:
+        print("Access granted: User is logged in.")
+
+    # --------------------------------------------------
+    # 02. elif Statements
+    # --------------------------------------------------
+    print_sub_section(2, "elif Statements")
+
+    model_accuracy = 0.87
+    print(f"Model accuracy: {model_accuracy:.2f}")
+
+    if model_accuracy >= 0.95:
+        print("Status: Production ready!")
+    elif model_accuracy >= 0.85:
+        print("Status: Good performance, minor tuning recommended.")
+    elif model_accuracy >= 0.70:
+        print("Status: Needs more training data.")
+
+    # --------------------------------------------------
+    # 03. else Statements
+    # --------------------------------------------------
+    print_sub_section(3, "else Statements")
+
+    api_status_code = 500
+    print(f"API Response Code: {api_status_code}")
+
+    if api_status_code == 200:
+        print("Success: Request completed.")
+    elif api_status_code == 404:
+        print("Error: Endpoint not found.")
+    else:
+        print("Fallback: Unexpected server error occurred.")
+
+
 if __name__ == '__main__':
     main()
-

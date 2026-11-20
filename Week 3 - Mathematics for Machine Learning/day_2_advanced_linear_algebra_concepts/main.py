@@ -18,8 +18,9 @@ def main():
 
     # Sub-section 2: Python Implementation (Determinants)
     print_sub_section(2, "Python Implementation (Determinants)")
-    matrix_a = np.array([,
-        [1, 4]
+    matrix_a = np.array([
+        [2.0, 3.0],
+        [1.0, 4.0]
     ])
     print("Matrix A =\n", matrix_a)
     det_a = np.linalg.det(matrix_a)
@@ -54,8 +55,9 @@ def main():
     print("Eigenvalues (A) =\n", eigenvalues_a)
     print("Eigenvectors (A) =\n", eigenvectors_a)
 
-    matrix_b = np.array([,
-        [1, 1]
+    matrix_b = np.array([
+        [2.0, 0.0],
+        [1.0, 1.0]
     ])
     print("Matrix B =\n", matrix_b)
     eigenvalues_b, eigenvectors_b = np.linalg.eig(matrix_b)
@@ -92,9 +94,10 @@ def main():
 
     # Sub-section 1: Exercise 1 - 3x3 Determinant and Inverse
     print_sub_section(1, "Exercise 1: 3x3 Determinant and Inverse")
-    ex1_matrix = np.array([,
- ,
-        [7, 8, 9]
+    ex1_matrix = np.array([
+        [1.0, 2.0, 3.0],
+        [0.0, 1.0, 4.0],
+        [5.0, 6.0, 0.0]
     ])
     print("3x3 Matrix =\n", ex1_matrix)
     print("Determinant =", np.linalg.det(ex1_matrix))
@@ -103,8 +106,8 @@ def main():
     # Sub-section 2: Exercise 2 - 2x2 Eigenvalues and Eigenvectors
     print_sub_section(2, "Exercise 2: 2x2 Eigenvalues & Eigenvectors")
     ex2_matrix = np.array([
-        [4, -2],
-        [1, 1]
+        [4.0, -2.0],
+        [1.0, 1.0]
     ])
     ex2_vals, ex2_vecs = np.linalg.eig(ex2_matrix)
     print("Eigenvalues =", ex2_vals)
@@ -112,9 +115,10 @@ def main():
 
     # Sub-section 3: Exercise 3 - SVD Matrix Reconstruction
     print_sub_section(3, "Exercise 3: SVD Reconstruction Matrix")
-    ex3_matrix = np.array([,
-        [-1, 3, 1],
-        [1, 1, 3]
+    ex3_matrix = np.array([
+        [3.0, 1.0, 1.0],
+        [-1.0, 3.0, 1.0],
+        [1.0, 1.0, 3.0]
     ])
     ex3_U, ex3_S, ex3_VT = np.linalg.svd(ex3_matrix)
     print("U Matrix =\n", ex3_U)
