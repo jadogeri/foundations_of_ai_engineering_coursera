@@ -12,3 +12,8 @@ __pycache__/
 
 # Database files
 *.db
+
+# Generated Files
+fruits.txt
+sample_copy.txt
+app_activity.log

@@ -1,138 +1,160 @@
-import re
+from datetime import datetime
 from common.utils import print_header, print_toc_entry, print_sub_section
 
 
-# --- Sub-section 5: Exercise 1 (Text Cleaner) ---
-def clean_text(text: str) -> str:
-    # Remove punctuation (keep only word characters and whitespace)
-    cleaned: str = re.sub(r"[^\w\s]", "", text)
-    # Remove extra spaces
-    cleaned = " ".join(cleaned.split())
-    # Convert to lowercase
-    return cleaned.lower()
+# --- Sub-section 4: Exercise 1 (Count Words and Lines) ---
+def count_words_and_lines(filename: str) -> None:
+    try:
+        with open(filename, "r", encoding="utf-8") as file:
+            lines: list[str] = file.readlines()
+            line_count: int = len(lines)
+            word_count: int = sum(len(line.split()) for line in lines)
+
+            print(f"File: '{filename}'")
+            print(f"Number of lines: {line_count}")
+            print(f"Number of words: {word_count}")
+    except FileNotFoundError:
+        print(f"Error: File '{filename}' not found.")
 
 
-# --- Sub-section 6: Exercise 2 (Palindrome Checker) ---
-def is_palindrome(text: str) -> bool:
-    cleaned: str = "".join(char.lower() for char in text if char.isalnum())
-    return cleaned == cleaned[::-1]
+# --- Sub-section 5: Exercise 2 (Write and Read List of Items) ---
+def write_items_to_file(filename: str, items: list[str]) -> None:
+    try:
+        with open(filename, "w", encoding="utf-8") as file:
+            for item in items:
+                file.write(f"{item}\n")
+        print(f"Successfully wrote {len(items)} items to '{filename}'.")
+    except OSError as e:
+        print(f"Error writing to '{filename}': {e}")
 
 
-# --- Sub-section 7: Practice 1 (Count Vowels) ---
-def count_vowels(text: str) -> int:
-    vowels: str = "aeiouAEIOU"
-    return sum(1 for char in text if char in vowels)
+def read_items_from_file(filename: str) -> None:
+    try:
+        with open(filename, "r", encoding="utf-8") as file:
+            items: list[str] = file.readlines()
+            print(f"Items in '{filename}':")
+            for item in items:
+                print(f"  - {item.strip()}")
+    except FileNotFoundError:
+        print(f"Error: File '{filename}' not found.")
 
 
-# --- Sub-section 8: Practice 2 (Mask Emails with Regex) ---
-def mask_emails(text: str) -> str:
-    email_pattern: str = r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-    return re.sub(email_pattern, "[EMAIL REDACTED]", text)
+# --- Sub-section 6: Practice 1 (Copy File Contents) ---
+def copy_file_contents(source_file: str, destination_file: str) -> None:
+    try:
+        with open(source_file, "r", encoding="utf-8") as src:
+            content: str = src.read()
+
+        with open(destination_file, "w", encoding="utf-8") as dest:
+            dest.write(content)
+
+        print(f"Copied contents from '{source_file}' to '{destination_file}'.")
+    except FileNotFoundError:
+        print(f"Error: Source file '{source_file}' not found.")
 
 
-# --- Sub-section 9: Practice 3 (Reverse Words in a Sentence) ---
-def reverse_words(sentence: str) -> str:
-    words: list[str] = sentence.split()
-    return " ".join(words[::-1])
+# --- Sub-section 7: Practice 2 (Count Specific Word Occurrences) ---
+def count_word_occurrences(filename: str, target_word: str) -> int:
+    try:
+        with open(filename, "r", encoding="utf-8") as file:
+            content: str = file.read().lower()
+            words: list[str] = [word.strip(".,!?;:\"'()") for word in content.split()]
+            return words.count(target_word.lower())
+    except FileNotFoundError:
+        print(f"Error: File '{filename}' not found.")
+        return 0
+
+
+# --- Sub-section 8: Practice 3 (Log Messages with Timestamps) ---
+def log_message_with_timestamp(log_file: str, message: str) -> None:
+    timestamp: str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    try:
+        with open(log_file, "a", encoding="utf-8") as file:
+            file.write(f"[{timestamp}] {message}\n")
+        print(f"Logged: [{timestamp}] {message}")
+    except OSError as e:
+        print(f"Error writing to log file '{log_file}': {e}")
 
 
 def main() -> None:
-    print_header("Day 5: Working with Strings in Python")
-    print_toc_entry(1, "String Manipulation (Concatenation & Slicing)")
-    print_toc_entry(2, "String Formatting (f-strings)")
-    print_toc_entry(3, "Common String Methods (split, join, replace, strip)")
-    print_toc_entry(4, "Regular Expressions (re.search, re.findall, re.sub)")
-    print_toc_entry(5, "Exercise 1: Text Cleaner")
-    print_toc_entry(6, "Exercise 2: Palindrome Checker")
-    print_toc_entry(7, "Practice 1: Count Vowels in a String")
-    print_toc_entry(8, "Practice 2: Find & Replace Email Addresses (Regex)")
-    print_toc_entry(9, "Practice 3: Reverse Words in a Sentence")
+    print_header("Day 6: File Handling in Python")
+    print_toc_entry(1, "Opening, Writing, and Appending Files (open, modes)")
+    print_toc_entry(2, "Reading Files (read, readline, readlines)")
+    print_toc_entry(3, "Exception Handling (try / except FileNotFoundError)")
+    print_toc_entry(4, "Exercise 1: Count Words and Lines in a File")
+    print_toc_entry(5, "Exercise 2: Write and Read a List of Items")
+    print_toc_entry(6, "Practice 1: Copy Contents from One File to Another")
+    print_toc_entry(7, "Practice 2: Count Occurrences of a Specific Word")
+    print_toc_entry(8, "Practice 3: Log Messages with Timestamps")
 
-    # 1. String Manipulation (Concatenation & Slicing)
-    print_sub_section(1, "String Manipulation (Concatenation & Slicing)")
-    first: str = "Hello"
-    second: str = "World"
-    greeting: str = first + " " + second
-    print(f"Concatenated string: {greeting}")
+    sample_file: str = "day_6_file_handling/sample.txt"
+    fruits_file: str = "fruits.txt"
+    copied_file: str = "sample_copy.txt"
+    log_file: str = "app_activity.log"
 
-    text: str = "Python Programming"
-    print(f"Full text: '{text}'")
-    print(f"Slice [0:6]: '{text[0:6]}'")
-    print(f"Slice [-11:]: '{text[-11:]}'")
+    # 1. Opening, Writing, and Appending Files
+    print_sub_section(1, "Opening, Writing, and Appending Files (open, modes)")
+    with open(sample_file, "w", encoding="utf-8") as file:
+        file.write("Hello World\n")
+        file.write("How are you\n")
+        file.write("What is the plan for today\n")
 
-    # 2. String Formatting (f-strings)
-    print_sub_section(2, "String Formatting (f-strings)")
-    name: str = "Alice"
-    age: int = 25
-    formatted_message: str = f"My name is {name} and I am {age} years old."
-    print(formatted_message)
+    with open(sample_file, "a", encoding="utf-8") as file:
+        file.write("Are you working on AI technologies\n")
+    print(f"Created and appended lines to '{sample_file}' using 'w' and 'a' modes.")
 
-    # 3. Common String Methods
-    print_sub_section(3, "Common String Methods (split, join, replace, strip)")
-    sentence: str = "Python is fun"
-    words: list[str] = sentence.split()
-    print(f"Split by space: {words}")
+    # 2. Reading Files (read, readline, readlines)
+    print_sub_section(2, "Reading Files (read, readline, readlines)")
+    with open(sample_file, "r", encoding="utf-8") as file:
+        first_line: str = file.readline().strip()
+        print(f"First line (readline): '{first_line}'")
 
-    csv_sentence: str = "Python,is,fun"
-    print(f"Split by comma: {csv_sentence.split(',')}")
+    with open(sample_file, "r", encoding="utf-8") as file:
+        all_lines: list[str] = file.readlines()
+        print(f"All lines as list (readlines): {[line.strip() for line in all_lines]}")
 
-    joined_sentence: str = " | ".join(words)
-    print(f"Joined with pipe: '{joined_sentence}'")
+    # 3. Exception Handling
+    print_sub_section(3, "Exception Handling (try / except FileNotFoundError)")
+    missing_file: str = "non_existent_file.txt"
+    try:
+        with open(missing_file, "r", encoding="utf-8") as file:
+            print(file.read())
+    except FileNotFoundError:
+        print(f"Handled gracefully: '{missing_file}' does not exist.")
+    except PermissionError:
+        print(f"Handled gracefully: Permission denied for '{missing_file}'.")
+    except OSError as e:
+        print(f"Handled gracefully: I/O error occurred ({e}).")
 
-    language_text: str = "I love Java"
-    updated_text: str = language_text.replace("Java", "Python")
-    print(f"Replaced text: '{updated_text}'")
+    # 4. Exercise 1: Count Words and Lines
+    print_sub_section(4, "Exercise 1: Count Words and Lines in a File")
+    count_words_and_lines(sample_file)
 
-    messy_text: str = "    Hello, World!    "
-    stripped_text: str = messy_text.strip()
-    print(f"Before strip: '{messy_text}' | After strip: '{stripped_text}'")
+    # 5. Exercise 2: Write and Read a List of Items
+    print_sub_section(5, "Exercise 2: Write and Read a List of Items")
+    fruits: list[str] = ["Apple", "Banana", "Cherry", "Dates"]
+    write_items_to_file(fruits_file, fruits)
+    read_items_from_file(fruits_file)
+    read_items_from_file("items.txt")  # Triggers FileNotFoundError check from lesson
 
-    # 4. Regular Expressions
-    print_sub_section(4, "Regular Expressions (re.search, re.findall, re.sub)")
-    contact_info: str = "Contact me at 123-456-7890"
-    digits: list[str] = re.findall(r"\d+", contact_info)
-    print(f"Original contact: '{contact_info}'")
-    print(f"Digits found (re.findall): {digits}")
+    # 6. Practice 1: Copy Contents from One File to Another
+    print_sub_section(6, "Practice 1: Copy Contents from One File to Another")
+    copy_file_contents(sample_file, copied_file)
 
-    masked_contact: str = re.sub(r"\d", "X", contact_info)
-    print(f"Masked contact (re.sub): '{masked_contact}'")
+    # 7. Practice 2: Count Occurrences of a Specific Word
+    print_sub_section(7, "Practice 2: Count Occurrences of a Specific Word")
+    search_word: str = "are"
+    occurrences: int = count_word_occurrences(sample_file, search_word)
+    print(f"The word '{search_word}' appears {occurrences} time(s) in '{sample_file}'.")
 
-    first_match: re.Match[str] | None = re.search(r"\d{3}", contact_info)
-    if first_match:
-        print(f"First 3-digit match (re.search): '{first_match.group()}'")
-
-    # 5. Exercise 1: Text Cleaner
-    print_sub_section(5, "Exercise 1: Text Cleaner")
-    raw_input_text: str = "   Hello World!! Welcome to Python, programming...   "
-    cleaned_output: str = clean_text(raw_input_text)
-    print(f"Raw text: '{raw_input_text}'")
-    print(f"Cleaned text: '{cleaned_output}'")
-
-    # 6. Exercise 2: Palindrome Checker
-    print_sub_section(6, "Exercise 2: Palindrome Checker")
-    test_phrases: list[str] = ["madam", "A man, a plan, a canal, Panama", "Python"]
-    for phrase in test_phrases:
-        if is_palindrome(phrase):
-            print(f"'{phrase}' -> is a palindrome")
-        else:
-            print(f"'{phrase}' -> is NOT a palindrome")
-
-    # 7. Practice 1: Count Vowels in a String
-    print_sub_section(7, "Practice 1: Count Vowels in a String")
-    vowel_sample: str = "Foundations of AI Engineering"
-    print(f"Text: '{vowel_sample}' | Vowel count: {count_vowels(vowel_sample)}")
-
-    # 8. Practice 2: Find & Replace Email Addresses (Regex)
-    print_sub_section(8, "Practice 2: Find & Replace Email Addresses (Regex)")
-    email_text: str = "Reach out to alice@example.com or support@company.org for help."
-    print(f"Original: '{email_text}'")
-    print(f"Redacted: '{mask_emails(email_text)}'")
-
-    # 9. Practice 3: Reverse Words in a Sentence
-    print_sub_section(9, "Practice 3: Reverse Words in a Sentence")
-    order_sentence: str = "Python is great for AI engineering"
-    print(f"Original: '{order_sentence}'")
-    print(f"Reversed words: '{reverse_words(order_sentence)}'")
+    # 8. Practice 3: Log Messages with Timestamps
+    print_sub_section(8, "Practice 3: Log Messages with Timestamps")
+    sample_logs: list[str] = [
+        "User started Day 6 file handling script.",
+        "Processed sample.txt and fruits.txt successfully."
+    ]
+    for entry in sample_logs:
+        log_message_with_timestamp(log_file, entry)
 
 
 # Press the green button in the gutter to run the script.
