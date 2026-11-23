@@ -17,3 +17,7 @@ __pycache__/
 fruits.txt
 sample_copy.txt
 app_activity.log
+
+tasks.csv
+tasks.json
+tasks.txt
