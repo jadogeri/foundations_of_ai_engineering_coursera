@@ -17,7 +17,6 @@ def main():
     print("Original array:")
     print(arr)
     print_sub_section(1, "Array and scalar broadcasting")
-    print_sub_section(2, "Original array")
     print("arr + 10:")
     print(arr + 10)
     print("arr * 2:")
